@@ -1,11 +1,17 @@
 package com.l.ol;
 
-public class Main {
+import java.io.IOException;
 
+public class Main {
 	public static void main(String[] args) {
-		new ThreadPool();
-		ThreadPool.addTask(new PAINIS());
-		
+		try {
+			new ThreadPool();
+			PropLoader.PropLoad();
+			ThreadPool.addTask(new Logger("Started up!"));
+			ThreadPool.addTask(new PAINIS());
+		} catch (IOException e) {
+			System.out.println("You dont have PAINIS running correctly!");
+			e.printStackTrace();
+		}
 	}
-	
 }
