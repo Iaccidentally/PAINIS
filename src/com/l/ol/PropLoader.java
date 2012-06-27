@@ -17,7 +17,7 @@ public class PropLoader {
 	private static String Message;
 
 
-	public synchronized static void PropLoad() throws FileNotFoundException, IOException {
+	protected synchronized static void PropLoad() throws FileNotFoundException, IOException {
 		Properties prop = new Properties();
 
 		InputStream config = new FileInputStream("config.ini");
@@ -25,11 +25,11 @@ public class PropLoader {
 		setMessage(prop.getProperty("Message"));
 	}
 
-	public synchronized static String getMessage() {
+	protected synchronized static String getMessage() {
 		return Message;
 	}
 
-	public synchronized static void setMessage(String string) {
+	protected synchronized static void setMessage(String string) {
 		Message = string;
 	}
 }

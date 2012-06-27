@@ -7,7 +7,7 @@ public class ThreadPool extends Thread {
 
 	private static volatile List<Runnable> r = new ArrayList<Runnable>();
 
-	public static void addTask(Runnable r) {
+	protected static void addTask(Runnable r) {
 		ThreadPool.r.add(r);
 	}
 
